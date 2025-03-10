@@ -2,4 +2,54 @@
 layout: base.html
 ---
 
-{{ content }}
+<section id="hero">{{ content }}</section>
+
+<hr />
+
+<section id="about-summary">
+  <div>
+    {% renderSnippet "home-intro" %}
+    <p><a href="/about/">Learn more about us</a></p>
+  </div>
+  <div>
+    {% renderSnippet "home-menu" %}
+    <p><a href="/menu/">See our full menu</a></p>
+  </div>
+</section>
+
+<hr />
+
+<section id="latest-news">
+  <h2>Latest News</h2>
+  <div>
+    {% assign latestPosts = collections.blog | slice: 0, 2 %} {% for post in
+    latestPosts %}
+    <article>
+      <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+      <p>
+        <em
+          >{% if post.data.date %}{{ post.data.date | date: "%B %d, %Y" }}{%
+          endif %}</em
+        >
+      </p>
+      <p>{{ post.data.description }}</p>
+      <p><a href="{{ post.url }}">Read more</a></p>
+    </article>
+    {% endfor %}
+  </div>
+  <p><a href="/blog/">View all blog posts</a></p>
+</section>
+
+<hr />
+
+<section id="visit-us">
+  <div>
+    <h2>Visit Us</h2>
+    <address>
+      <strong>{{ site.name }}</strong><br />
+      {{ site.address }}<br />
+      {{ site.hours }}
+    </address>
+    <p><a href="/contact/">Contact us</a> for more information</p>
+  </div>
+</section>

@@ -1,5 +1,14 @@
 {
-  "name": "Example Site",
-  "formspark_id": "",
-  "url": "https://example.com"
+  "name": "Avo Coffee",
+  "description": "Fresh Avocado bistro coffee deli in Haslingden, Rossendale",
+  "url": "https://avocoffee.co.uk",
+  "address": "83 Deardengate, Haslingden, Rossendale, England, BB4 5SN",
+  "hours": "Open every day 9am - 4pm",
+  "social": {
+    "facebook": "http://facebook.com/61564212860415",
+    "instagram": "http://www.instagram.com/avocoffeekandy",
+    "happycow": "https://www.happycow.net/reviews/avocoffee-rossendale-442569"
+  },
+  "tagline": "Coffee ~ Breakfast ~ Brunch",
+  "formspark_id": ""
 }

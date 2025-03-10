@@ -1,0 +1,16 @@
+---
+layout: base.html
+---
+
+<article>
+  <header>
+    <h1>{{ title }}</h1>
+    <p><em>{{ date | readableDate }}</em></p>
+  </header>
+
+  {{ content }}
+  
+  <footer>
+    <p><a href="/blog/">← Back to all posts</a></p>
+  </footer>
+</article>

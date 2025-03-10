@@ -3,15 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
-    {% if description -%}
-    <meta name="description" content="{{ description }}" />
-    {% endif -%}
+    <title>{% if title %}{{ title }} | {% endif %}{{ site.name }}</title>
+    <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}" />
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=chau-philomene-one:400" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <!-- No JS as per requirements -->
   </head>
-  <body {%- if css_class %} class="{{ css_class }}" {%- endif -%}>
-    <article>{{ content }}</article>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/assets/avo-coffee-logo.png" alt="{{ site.name }} logo" width="200" height="auto">
+      </a>
+      <p>{{ site.tagline }}</p>
+      <address>
+        {{ site.address }}<br>
+        {{ site.hours }}
+      </address>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="/menu/" {% if page.url contains "/menu/" %}aria-current="page"{% endif %}>Menu</a></li>
+        <li><a href="/about/" {% if page.url contains "/about/" %}aria-current="page"{% endif %}>About</a></li>
+        <li><a href="/blog/" {% if page.url contains "/blog/" %}aria-current="page"{% endif %}>Blog</a></li>
+        <li><a href="/contact/" {% if page.url contains "/contact/" %}aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+      <div class="social-links">
+        <a href="{{ site.social.facebook }}" target="_blank" rel="noopener">Facebook</a>
+        <a href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a>
+        <a href="{{ site.social.happycow }}" target="_blank" rel="noopener">HappyCow</a>
+      </div>
+      {% renderSnippet "footer-text" %}
+    </footer>
   </body>
 </html>

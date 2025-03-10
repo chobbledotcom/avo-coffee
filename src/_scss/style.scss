@@ -1,1 +1,690 @@
 @use "sass:color";
+
+/*
+ * Merged MVP.css and custom styles for Avo Coffee
+ * MVP.css v1.17.2 - https://github.com/andybrewer/mvp
+ * Custom adaptations for Avo Coffee website
+ */
+
+/* Variables */
+$background-color: #fdf8d8;
+$font-color: #283a06;
+$secondary-color: #c63c20;
+$bg-secondary: #f5f0d0;
+$color-shadow: #e6ddb3;
+$color-accent: rgba($secondary-color, 0.1);
+$text-secondary: #5a7013;
+$scrollbar-color: #a3b061;
+$border-radius: 4px;
+$box-shadow: 2px 2px 8px;
+$font-family: system-ui, sans-serif;
+$line-height: 1.5;
+$width-content: 1200px;
+$active-brightness: 0.85;
+$hover-brightness: 1.2;
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: $background-color;
+  color: $font-color;
+  font-family: $font-family;
+  line-height: $line-height;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Chau Philomene One", sans-serif;
+  line-height: $line-height;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: $secondary-color;
+    border-radius: 2px;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0.75rem 0;
+  padding: 0;
+  width: 100%;
+}
+
+a {
+  color: $secondary-color;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    filter: brightness($active-brightness);
+  }
+}
+
+code,
+samp {
+  background-color: $color-accent;
+  border-radius: $border-radius;
+  color: $font-color;
+  display: inline-block;
+  margin: 0 0.1rem;
+  padding: 0 0.5rem;
+}
+
+/* Layout */
+footer,
+header,
+main {
+  margin: 0 auto;
+  max-width: $width-content;
+  padding: 2rem 1rem;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid $bg-secondary;
+
+  img {
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin: 0.5rem 0;
+  }
+
+  address {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+}
+
+main {
+  padding-top: 0;
+}
+
+hr {
+  background-color: $bg-secondary;
+  border: none;
+  height: 2px;
+  margin: 3rem 0;
+  width: 100%;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+  width: 100%;
+
+  &#hero {
+    text-align: center;
+    padding: 2rem 0;
+    justify-content: center;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &#about-summary {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+
+    div {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .home-intro,
+    .home-menu {
+      h2 {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+
+  &#latest-news {
+    div {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 2rem;
+      width: 100%;
+      margin: 1rem 0;
+
+      article {
+        flex: 1;
+        min-width: 280px;
+        border: 1px solid $bg-secondary;
+        border-radius: $border-radius;
+        padding: 1.25rem;
+
+        &:hover {
+          box-shadow: $box-shadow $color-shadow;
+        }
+
+        h3 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &#visit-us {
+    justify-content: center;
+    text-align: center;
+
+    address {
+      margin: 1rem auto;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  pre {
+    overflow: auto;
+  }
+
+  aside {
+    border: 1px solid $bg-secondary;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow $color-shadow;
+    margin: 1rem;
+    padding: 1.25rem;
+    width: 285px;
+
+    &:hover {
+      box-shadow: $box-shadow $bg-secondary;
+    }
+  }
+}
+
+article {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $bg-secondary;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  aside {
+    background: $color-accent;
+    border-left: 4px solid $secondary-color;
+    padding: 0.01rem 0.8rem;
+  }
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid $bg-secondary;
+  margin-top: 2rem;
+
+  div {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+}
+
+[hidden] {
+  display: none;
+}
+
+/* Navigation */
+nav {
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  margin: 0.5rem 0 2rem;
+  padding: 0.75rem 0;
+  background-color: $background-color;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+
+    li {
+      display: inline-block;
+      margin: 0;
+      position: relative;
+      text-align: center;
+
+      a {
+        display: block;
+        padding: 0.5rem 1rem;
+        margin: 0 0.25rem;
+        color: $font-color;
+        border-radius: $border-radius;
+        transition: all 0.2s ease;
+        position: relative;
+
+        &:hover {
+          color: $secondary-color;
+          background-color: rgba($secondary-color, 0.05);
+          text-decoration: none;
+        }
+
+        &:active {
+          background-color: rgba($secondary-color, 0.1);
+        }
+
+        &[aria-current="page"] {
+          color: $secondary-color;
+          font-weight: 700;
+          background-color: rgba($secondary-color, 0.08);
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0.5rem;
+            right: 0.5rem;
+            height: 3px;
+            background-color: $secondary-color;
+            border-radius: 2px 2px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Lists */
+ol,
+ul {
+  li {
+    padding: 0.2rem 0;
+  }
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+
+  img {
+    max-width: 100%;
+  }
+
+  figcaption {
+    color: $text-secondary;
+  }
+}
+
+/* Forms */
+button,
+input[type="submit"] {
+  background-color: $secondary-color;
+  border: 2px solid $secondary-color;
+  border-radius: $border-radius;
+  color: $background-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: medium;
+  font-weight: bold;
+  line-height: $line-height;
+  margin: 0.5rem 0;
+  padding: 1rem 2rem;
+
+  &:hover {
+    filter: brightness($hover-brightness);
+  }
+
+  &:active {
+    filter: brightness($active-brightness);
+  }
+
+  &:disabled {
+    background: $bg-secondary;
+    border-color: $bg-secondary;
+    color: $text-secondary;
+    cursor: not-allowed;
+
+    &:hover {
+      filter: none;
+    }
+  }
+}
+
+form {
+  border: 1px solid $bg-secondary;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow $color-shadow;
+  display: block;
+  max-width: 800px;
+  min-width: 285px;
+  padding: 1.5rem;
+  text-align: left;
+
+  header {
+    margin: 1.5rem 0;
+    padding: 1.5rem 0;
+  }
+}
+
+input,
+label,
+select,
+textarea {
+  display: block;
+  font-size: inherit;
+  max-width: 800px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline-block;
+
+  & + label {
+    display: inline-block;
+    font-weight: normal;
+    position: relative;
+    top: 1px;
+  }
+}
+
+input,
+select,
+textarea {
+  border: 1px solid $bg-secondary;
+  border-radius: $border-radius;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.8rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  width: calc(100% - 1.6rem);
+}
+
+input[readonly],
+textarea[readonly] {
+  background-color: $bg-secondary;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+/* Address */
+address {
+  font-style: normal;
+  margin-bottom: 1rem;
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 4px solid $secondary-color;
+  display: block;
+  font-size: 1.1rem;
+  line-height: $line-height;
+  margin: 1.5rem 0;
+  padding: 1rem;
+
+  footer {
+    color: $text-secondary;
+    display: block;
+    font-size: small;
+    line-height: $line-height;
+    padding: 0.5rem 0;
+  }
+}
+
+/* Tables */
+table {
+  border: 1px solid $bg-secondary;
+  border-radius: $border-radius;
+  border-spacing: 0;
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0;
+  white-space: nowrap;
+
+  td,
+  th,
+  tr {
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+  }
+
+  thead {
+    background-color: $secondary-color;
+    border-collapse: collapse;
+    border-radius: $border-radius;
+    color: $background-color;
+    margin: 0;
+    padding: 0;
+
+    th:first-child {
+      border-top-left-radius: $border-radius;
+    }
+
+    th:last-child {
+      border-top-right-radius: $border-radius;
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: $color-accent;
+  }
+}
+
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $scrollbar-color transparent;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-color;
+    border-radius: 10px;
+  }
+}
+
+/* Other elements */
+small {
+  color: $text-secondary;
+}
+
+mark {
+  padding: 0.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+    padding: 0 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  header {
+    padding: 1.5rem 0 1rem;
+
+    h1 {
+      font-size: 1.7rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    img {
+      max-width: 150px;
+    }
+  }
+
+  main {
+    padding: 1rem 0;
+  }
+
+  section {
+    &#hero {
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    &#about-summary,
+    &#latest-news div {
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .home-intro,
+      .home-menu {
+        width: 100%;
+      }
+    }
+  }
+
+  hr {
+    margin: 2rem auto;
+    max-width: 80%;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    margin: 0.25rem 0 1.5rem;
+
+    ul {
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      li {
+        width: auto;
+
+        a {
+          padding: 0.4rem 0.8rem;
+          margin: 0.2rem;
+
+          &[aria-current="page"]::after {
+            height: 2px;
+            left: 0.3rem;
+            right: 0.3rem;
+          }
+        }
+      }
+    }
+  }
+}
