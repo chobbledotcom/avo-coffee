@@ -1,6 +1,6 @@
 ## Featured Menu Items
 
-- Full vegan breakfast
+- Full breakfasts (+ vegan)
 - Fresh Smoothies and Milkshakes
 - Smashed avocado croissants
 - Pakistani desi tea

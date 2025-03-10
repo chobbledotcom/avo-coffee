@@ -58,15 +58,13 @@ h6 {
   text-wrap: balance;
 }
 
-h1 {
-  font-size: 2.2rem;
-}
-
+h1,
 h2 {
-  font-size: 1.8rem;
   position: relative;
   display: inline-block;
   margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
 
   &::after {
     content: "";
@@ -74,9 +72,68 @@ h2 {
     bottom: -0.5rem;
     left: 0;
     width: 100%;
-    height: 3px;
-    background-color: $secondary-color;
+    background: linear-gradient(
+      90deg,
+      $secondary-color 0%,
+      lighten($secondary-color, 20%) 30%,
+      $secondary-color 70%,
+      darken($secondary-color, 10%) 100%
+    );
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: expandFromLeft 0.8s ease-out 0.4s forwards;
+  }
+}
+
+h1 {
+  font-size: 2.2rem;
+  max-width: 100%;
+
+  &::after {
+    height: 4px;
+    border-radius: 4px;
+  }
+}
+
+h2 {
+  font-size: 1.8rem;
+
+  &::after {
+    height: 2px;
     border-radius: 2px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes expandFromLeft {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  h1,
+  h2 {
+    opacity: 1;
+    animation: none;
+
+    &::after {
+      transform: none;
+      animation: none;
+    }
   }
 }
 
@@ -94,12 +151,9 @@ a {
   color: $secondary-color;
   display: inline-block;
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: underline;
 
-  &:hover {
-    text-decoration: underline;
-  }
-
+  &:hover,
   &:active {
     filter: brightness($active-brightness);
   }
@@ -130,7 +184,7 @@ header {
   border-bottom: 1px solid $bg-secondary;
 
   img {
-    max-width: 180px;
+    width: 300px;
     height: auto;
     margin: 0 auto 1rem;
     display: block;
@@ -154,6 +208,11 @@ header {
 
 main {
   padding-top: 0;
+  p,
+  ul {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards;
+  }
 }
 
 hr {
@@ -272,6 +331,15 @@ section {
   }
 }
 
+.contact {
+  iframe {
+    aspect-ratio: 16/9;
+    display: block;
+    width: 100%;
+    margin: 1rem 0 2rem;
+  }
+}
+
 article {
   width: 100%;
   margin-bottom: 2rem;
@@ -341,17 +409,36 @@ nav {
         margin: 0 0.25rem;
         color: $font-color;
         border-radius: $border-radius;
+        text-decoration: none;
         transition: all 0.2s ease;
         position: relative;
 
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0.5rem;
+          right: 0.5rem;
+          height: 3px;
+          border-radius: 2px 2px 0 0;
+          background-color: $font-color;
+          opacity: 0.3;
+        }
+
         &:hover {
-          color: $secondary-color;
           background-color: rgba($secondary-color, 0.05);
-          text-decoration: none;
+          &::after {
+            opacity: 1;
+            background-color: $secondary-color;
+          }
         }
 
         &:active {
           background-color: rgba($secondary-color, 0.1);
+          &::after {
+            opacity: 1;
+            background-color: $secondary-color;
+          }
         }
 
         &[aria-current="page"] {
@@ -603,10 +690,18 @@ mark {
 
   h1 {
     font-size: 1.8rem;
+
+    &::after {
+      height: 3px;
+    }
   }
 
   h2 {
     font-size: 1.5rem;
+
+    &::after {
+      height: 2px;
+    }
   }
 
   h3 {

@@ -4,18 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% if title %}{{ title }} | {% endif %}{{ site.name }}</title>
-    <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}" />
+    {% if description -%}
+      <meta name="description" content="{{ description | escape }}" />
+    {% endif -%}
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=chau-philomene-one:400" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    <!-- No JS as per requirements -->
+    <script type="module" async src="/assets/js/turbo.es2017-esm.min.js"></script>
   </head>
-  <body>
+  <body class="{{ page.fileSlug }}">
     <header>
       <a href="/">
-        <img src="/assets/avo-coffee-logo.png" alt="{{ site.name }} logo" width="200" height="auto">
+        <img decoding="sync" src="/assets/avo-coffee-logo.png" alt="{{ site.name }} logo">
       </a>
       <p>{{ site.tagline }}</p>
       <address>
