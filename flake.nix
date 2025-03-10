@@ -1,5 +1,5 @@
 {
-  description = "noktorum-com";
+  description = "avo-coffee-co-uk";
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
   };
@@ -25,7 +25,7 @@
         ];
 
         site = pkgs.stdenv.mkDerivation {
-          name = "eleventy-site";
+          name = "avo-coffee-co-uk-site";
           src = ./.;
           buildInputs = commonBuildInputs ++ [ nodeModules ];
 

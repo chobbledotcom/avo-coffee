@@ -28,7 +28,7 @@ jobs:
       - name: Build
         id: build
         run: |
-          BUILD_PATH=$(nix-build --no-out-link)
+          BUILD_PATH=$(nix-build)
           DEPLOY_PATH="$GITHUB_WORKSPACE/dist"
           mkdir -p "$DEPLOY_PATH"
           cp -r "$BUILD_PATH"/* "$DEPLOY_PATH"/
