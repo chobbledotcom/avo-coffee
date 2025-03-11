@@ -5,8 +5,7 @@ description: About Avo Coffee - a family-run cafe in Haslingden, Rossendale, off
 
 # 🥑 About Avo Coffee
 
-> "Absolutely spot on, food is excellent, service is great and the coffee is 10/10 👌"
-> _~[Facebook](https://www.facebook.com/Lunatixdub/posts/10162619753440350)_
+> "Absolutely spot on, food is excellent, service is great and the coffee is 10/10 👌" [~Facebook](https://www.facebook.com/Lunatixdub/posts/10162619753440350)\_
 
 We're a family-run cafe in Haslingden, Rossendale, offering freshly prepared food and great coffee. Our focus is on quality ingredients, delicious flavours, and a warm, welcoming atmosphere.
 
@@ -20,28 +19,18 @@ We serve freshly prepared food with plenty of vegan and gluten-free options. Our
 
 ## Shop Local
 
-We're proud to support local businesses. Our free range eggs are delivered weekly from [Woodhill Farm][woodhill], and we source ingredients locally whenever possible.
+We're proud to support local businesses. Our free range eggs are delivered weekly from [Woodhill Farm][https://www.woodhill-farm.co.uk], and we source ingredients locally whenever possible.
 
 ## ⭐ 5-Star Hygiene Rating
 
-We're proud to have been awarded [a 5-star hygiene rating!][scores]
+We're proud to have been awarded [a 5-star hygiene rating!]({{ site.social.scoresonthedoors }})
 
-## 💚 What Our Customers Say
+## 💚 More Lovely Reviews
 
-> "When the food arrived (quickly, might I add), it was everything I hoped for and then some. The eggs? Cooked to perfection – the kind you’d see on a foodie's Instagram feed with captions like "Eggcellence!" They nailed it. Truly."
+Many thanks to all the customers who have taken the time to leave a review.
 
-~ from [Google](https://maps.app.goo.gl/i8MW9owNSyck8JqA6)
+> "When the food arrived (quickly, might I add), it was everything I hoped for and then some. The eggs? Cooked to perfection – the kind you’d see on a foodie's Instagram feed with captions like "Eggcellence!" They nailed it. Truly." [~Google](https://maps.app.goo.gl/i8MW9owNSyck8JqA6)
 
-> "Really pleased to find this place! They have a good selection of vegan options - including a selection of vegan cakes! Plenty of room to sit in, or you can take away. Nice and clean, and friendly service."
+> "Really pleased to find this place! They have a good selection of vegan options - including a selection of vegan cakes! Plenty of room to sit in, or you can take away. Nice and clean, and friendly service." [~Happycow]({{ site.social.happycow }})
 
-~ from [Happycow][happycow]
-
-> "Great little cafe. Clean and friendly, but best of all a good selection of vegan food - which is hard to find round here. I had the wrap and a cake - which was brilliant!! Plenty of space to sit in - or they offer take away."
-
-~ from [Google](https://maps.app.goo.gl/orewasSPwtGJmsGj6)
-
-[woodhill]: https://www.woodhill-farm.co.uk
-
-[scores]: {{ site.social.scoresonthedoors }}
-
-[happycow]: {{ site.social.happycow }}
+> "Great little cafe. Clean and friendly, but best of all a good selection of vegan food - which is hard to find round here. I had the wrap and a cake - which was brilliant!! Plenty of space to sit in - or they offer take away." [~Google](https://maps.app.goo.gl/orewasSPwtGJmsGj6)

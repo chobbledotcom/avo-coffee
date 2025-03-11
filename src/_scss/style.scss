@@ -124,6 +124,15 @@ h2 {
   }
 }
 
+@keyframes expandFromTop {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
 /* Respect user preferences for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   h1,
@@ -132,6 +141,16 @@ h2 {
     animation: none;
 
     &::after {
+      transform: none;
+      animation: none;
+    }
+  }
+
+  blockquote {
+    opacity: 1;
+    animation: none;
+
+    &::before {
       transform: none;
       animation: none;
     }
@@ -226,22 +245,39 @@ header {
 main {
   padding-top: 0;
 
-  img {
-    display: block;
-    max-width: 60%;
-    margin: 1rem auto 2rem;
-    box-shadow: 0 0 0 $secondary-color;
-    transition: all 0.3s linear;
-    border: 2px solid white;
-    box-shadow: 4px 4px 0 $font-color;
-  }
-
   p,
   ul,
   h3,
   h4 {
     opacity: 0;
     animation: fadeIn 0.8s ease-in forwards;
+  }
+  .home & {
+    img {
+      display: block;
+      max-width: 60%;
+      margin: 1rem auto 2rem;
+      box-shadow: 0 0 0 $secondary-color;
+      transition: all 0.3s linear;
+      border: 2px solid white;
+      box-shadow: 4px 4px 0 $font-color;
+    }
+  }
+  .contact & {
+    img {
+      display: inline-block;
+      max-width: 1.5rem;
+      aspect-ratio: 1;
+      padding: 0;
+      margin: 0 0.5rem 0 0;
+    }
+    ul {
+      list-style-type: none;
+      li {
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 }
 
@@ -315,13 +351,6 @@ section {
       article {
         flex: 1;
         min-width: 280px;
-        border: 1px solid $bg-secondary;
-        border-radius: $border-radius;
-        padding: 1.25rem;
-
-        &:hover {
-          box-shadow: $box-shadow $color-shadow;
-        }
 
         h3 {
           margin-top: 0;
@@ -653,20 +682,43 @@ address {
 
 /* Blockquote */
 blockquote {
-  border-left: 4px solid $secondary-color;
+  position: relative;
   display: block;
   font-size: 1.3rem;
   line-height: $line-height;
   font-style: italic;
   margin: 1.5rem 0;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 0.5rem 2rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
 
-  footer {
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(
+      180deg,
+      $secondary-color 0%,
+      lighten($secondary-color, 20%) 30%,
+      $secondary-color 70%,
+      darken($secondary-color, 10%) 100%
+    );
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: expandFromTop 0.8s ease-out 0.4s forwards;
+    border-radius: 2px;
+  }
+
+  a {
     color: $text-secondary;
-    display: block;
-    font-size: small;
+    font-style: normal;
+    font-size: 1rem;
     line-height: $line-height;
-    padding: 0.5rem 0;
+    margin: 0.5rem 0 0.5rem 1rem;
   }
 }
 
