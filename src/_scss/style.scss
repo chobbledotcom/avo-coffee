@@ -202,7 +202,8 @@ header {
       margin: 0 auto 1rem;
       display: block;
     }
-    &:hover {
+    &:hover,
+    &:active {
       filter: none;
     }
   }
@@ -826,8 +827,8 @@ mark {
         width: auto;
 
         a {
-          padding: 0.4rem 0.8rem;
-          margin: 0.2rem;
+          padding: 0.4rem;
+          margin: 0;
 
           &[aria-current="page"]::after {
             height: 2px;
