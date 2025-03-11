@@ -3,7 +3,7 @@ title: Visit Our Cafe | Haslingden, Rossendale Location & Hours
 description: Visit or contact Avo Coffee in Haslingden, Rossendale
 ---
 
-# Visit Us
+# Visit Avo Coffee
 
 We're open every day from 9am to 4pm.
 

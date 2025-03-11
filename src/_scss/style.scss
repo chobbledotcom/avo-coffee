@@ -655,10 +655,11 @@ address {
 blockquote {
   border-left: 4px solid $secondary-color;
   display: block;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: $line-height;
+  font-style: italic;
   margin: 1.5rem 0;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 
   footer {
     color: $text-secondary;

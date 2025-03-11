@@ -43,6 +43,19 @@
 
     <main>
       {{ content }}
+      <hr />
+
+      <section id="visit-us">
+        <div>
+          <h2>Visit Us</h2>
+          <address>
+            <strong>{{ site.name }}</strong><br />
+            {{ site.address }}<br />
+            {{ site.hours }}
+          </address>
+          <p><a href="/contact/">Click here</a> for more contact info</p>
+        </div>
+      </section>
     </main>
 
     <footer>

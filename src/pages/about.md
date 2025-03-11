@@ -3,7 +3,10 @@ title: Our Story & Values | Family-Run Cafe with 5-Star Rating
 description: About Avo Coffee - a family-run cafe in Haslingden, Rossendale, offering freshly prepared food and great coffee
 ---
 
-# About Avo Coffee
+# 🥑 About Avo Coffee
+
+> "Absolutely spot on, food is excellent, service is great and the coffee is 10/10 👌"
+> _~[Facebook](https://www.facebook.com/Lunatixdub/posts/10162619753440350)_
 
 We're a family-run cafe in Haslingden, Rossendale, offering freshly prepared food and great coffee. Our focus is on quality ingredients, delicious flavours, and a warm, welcoming atmosphere.
 
@@ -19,11 +22,11 @@ We serve freshly prepared food with plenty of vegan and gluten-free options. Our
 
 We're proud to support local businesses. Our free range eggs are delivered weekly from [Woodhill Farm][woodhill], and we source ingredients locally whenever possible.
 
-## 5-Star Hygiene Rating
+## ⭐ 5-Star Hygiene Rating
 
 We're proud to have been awarded [a 5-star hygiene rating!][scores]
 
-## What Our Customers Say
+## 💚 What Our Customers Say
 
 > "When the food arrived (quickly, might I add), it was everything I hoped for and then some. The eggs? Cooked to perfection – the kind you’d see on a foodie's Instagram feed with captions like "Eggcellence!" They nailed it. Truly."
 
