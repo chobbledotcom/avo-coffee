@@ -54,7 +54,7 @@ All served with chips & a salad garnish.
 - **Beef chilli:** Beef chilli, cheese & japalenos.
 - **Vegan Wrap:** Falafel, red onions, hummus, grilled peppers & tomatoes.
 
-### Sandwiches and Bagels
+## Sandwiches and Bagels
 
 All served with a salad garnish.
 
@@ -64,3 +64,47 @@ All served with a salad garnish.
 - **Cheese & Tomato Melt**
 - **Sausage in Potato Roll:** Cracked black pepper, chicken sausage, or Cumberland chicken sausage.
 - **Turkey Rashers in Potato Roll**
+
+## Drinks
+
+We proudly use organic and Fairtrade-certified espresso, and we offer a variety of milk alternatives.
+
+### Coffee
+
+- Espresso
+- Cortado
+- Macchiato
+- Americano
+- Latte
+- Cappuccino
+- Flat White
+- Mocha
+- White Chocolate Mocha
+- Chai Latte
+- Vanilla Matcha Latte
+
+### Hot Chocolate
+
+- Classic Hot Chocolate
+- White Hot Chocolate
+- Mint Hot Chocolate
+
+### Tea Selection
+
+- Pot of Suki loose leaf tea
+- Mug of English Breakfast tea
+
+### Syrups
+
+Customise any hot drink with our delicious flavours (regular or sugar free):
+
+- Salted Caramel
+- Vanilla
+- Caramel
+- Cinnamon
+- Pistachio
+- Spiced Pumpkin
+- Gingerbread
+- Hazelnut
+- Spiced Chai
+- Honeycomb

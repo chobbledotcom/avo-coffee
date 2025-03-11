@@ -1,7 +1,6 @@
 ---
 title: Celebrating Our 5-Star Food Rating Achievement!
 description: We've officially been awarded a 5-star food rating after two months of operation
-date: 2023-04-15
 ---
 
 We've officially been open for two months today—and we're thrilled to share that we've been awarded a 5-star food rating!⭐️

@@ -27,16 +27,16 @@ module.exports = function (eleventyConfig) {
   const md = new markdownIt({
     html: true,
   });
-  
+
   // Add a markdownify filter
   eleventyConfig.addFilter("markdownify", function (content) {
     return md.render(content || "");
   });
-  
+
   // Add a shortcode to render snippets by name
-  eleventyConfig.addShortcode("renderSnippet", function(name) {
+  eleventyConfig.addShortcode("renderSnippet", function (name) {
     const snippetPath = path.join(__dirname, "src/snippets", `${name}.md`);
-    
+
     try {
       const content = fs.readFileSync(snippetPath, "utf8");
       return md.render(content);
@@ -48,7 +48,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     formats: ["webp", "jpeg"],
-    widths: [200, 400],
+    widths: [200, 400, 800, 1200],
     htmlOptions: {
       imgAttributes: {
         loading: "lazy",
@@ -82,7 +82,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("images", (collection) => {
     return images.map((i) => i.split("/")[2]).reverse();
   });
-  
+
   // Configure asset handling
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");

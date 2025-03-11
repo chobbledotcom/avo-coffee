@@ -50,7 +50,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Chau Philomene One", sans-serif;
+  font-family: "Asap Condensed", sans-serif;
+  font-weight: 600;
   line-height: $line-height;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -135,6 +136,17 @@ h2 {
       animation: none;
     }
   }
+
+  nav ul li {
+    opacity: 1;
+    animation: none;
+    transform: none;
+
+    a {
+      transform: none;
+      animation: none;
+    }
+  }
 }
 
 h3 {
@@ -183,13 +195,17 @@ header {
   padding: 2rem 0 1rem;
   border-bottom: 1px solid $bg-secondary;
 
-  img {
-    width: 300px;
-    height: auto;
-    margin: 0 auto 1rem;
-    display: block;
+  a.logo {
+    img {
+      width: 300px;
+      height: auto;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+    &:hover {
+      filter: none;
+    }
   }
-
   p {
     font-size: 1.2rem;
     margin: 0.5rem 0;
@@ -208,8 +224,21 @@ header {
 
 main {
   padding-top: 0;
+
+  img {
+    display: block;
+    max-width: 60%;
+    margin: 1rem auto 2rem;
+    box-shadow: 0 0 0 $secondary-color;
+    transition: all 0.3s linear;
+    border: 2px solid white;
+    box-shadow: 4px 4px 0 $font-color;
+  }
+
   p,
-  ul {
+  ul,
+  h3,
+  h4 {
     opacity: 0;
     animation: fadeIn 0.8s ease-in forwards;
   }
@@ -309,10 +338,6 @@ section {
     }
   }
 
-  img {
-    max-width: 100%;
-  }
-
   pre {
     overflow: auto;
   }
@@ -402,6 +427,14 @@ nav {
       margin: 0;
       position: relative;
       text-align: center;
+      opacity: 0;
+      animation: slideUp 0.5s ease-out forwards;
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          animation-delay: 0.1s * $i;
+        }
+      }
 
       a {
         display: block;
@@ -412,6 +445,9 @@ nav {
         text-decoration: none;
         transition: all 0.2s ease;
         position: relative;
+        transform: translateY(20px);
+        animation: navSlideIn 0.4s ease-out forwards;
+        animation-delay: inherit;
 
         &::after {
           content: "";
@@ -459,6 +495,26 @@ nav {
         }
       }
     }
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navSlideIn {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 

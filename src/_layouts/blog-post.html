@@ -5,11 +5,11 @@ layout: base.html
 <article>
   <header>
     <h1>{{ title }}</h1>
-    <p><em>{{ date | readableDate }}</em></p>
+    <p><em>{{ page.date | date: "%B %d, %Y" }}</em></p>
   </header>
 
   {{ content }}
-  
+
   <footer>
     <p><a href="/blog/">← Back to all posts</a></p>
   </footer>

@@ -1,7 +1,6 @@
 ---
 title: 7 Delicious Milkshake Flavors You Need to Try This Season
 description: Explore our range of delicious milkshake flavors - from cookies & cream to banana fudge
-date: 2023-04-10
 ---
 
 Did you know we offer different flavoured milkshakes?… 🧋🍦

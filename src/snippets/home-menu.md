@@ -1,4 +1,4 @@
-## Featured Menu Items
+## 😋 Featured Menu Items
 
 - Full breakfasts (+ vegan)
 - Fresh Smoothies and Milkshakes

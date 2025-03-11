@@ -1,7 +1,6 @@
 ---
 title: "Freshly Baked: Vegan & Gluten-Free Sweet Treats Just Arrived"
-description: Our selection of vegan and gluten-free sweet treats has been restocked
-date: 2023-04-05
+description: Our selection of sweet treats has been restocked, including vegan and gluten free options
 ---
 
 All our sweet treats have restocked and put out😍. Vegan & gluten free options available!!💚

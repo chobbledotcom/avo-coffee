@@ -5,6 +5,8 @@ description: Fresh Avocado bistro coffee deli in Haslingden offering plant-based
 permalink: /
 ---
 
-## Welcome to Avo Coffee
+## 🥑 Welcome to Avo Coffee
 
-We're a family-run cafe in Haslingden, Rossendale, offering freshly prepared food and great coffee. We serve food with plenty of vegan and gluten-free options.
+We're a family-run cafe in Haslingden, Rossendale, offering freshly prepared food and great coffee, with Halal, vegan, & gluten-free options.
+
+![Avo Coffee indoors view - green chairs and avocado themed walls!](/assets/photos/avocoffee-indoors.jpg)
