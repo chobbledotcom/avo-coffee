@@ -2,13 +2,6 @@
 
 A minimal, responsive website for [Avo Coffee](https://avocoffee.co.uk), a family-run cafe in Haslingden, Rossendale offering freshly prepared food and great coffee.
 
-## Key Features
-
-- No JavaScript - pure HTML and minimal CSS
-- Responsive design with a light theme
-- Semantic HTML with direct element styling (no CSS classes)
-- Built with [Eleventy](https://www.11ty.dev/) static site generator
-
 ## Website Structure
 
 ### Main Content Areas
