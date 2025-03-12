@@ -19,7 +19,7 @@ We serve freshly prepared food with plenty of vegan and gluten-free options. Our
 
 ## Shop Local
 
-We're proud to support local businesses. Our free range eggs are delivered weekly from [Woodhill Farm][https://www.woodhill-farm.co.uk], and we source ingredients locally whenever possible.
+We're proud to support local businesses. Our free range eggs are delivered weekly from [Woodhill Farm](https://www.woodhill-farm.co.uk), and we source ingredients locally whenever possible.
 
 ## ⭐ 5-Star Hygiene Rating
 
