@@ -5,7 +5,7 @@ description: About Avo Coffee - a family-run cafe in Haslingden, Rossendale, off
 
 # 🥑 About Avo Coffee
 
-> "Absolutely spot on, food is excellent, service is great and the coffee is 10/10 👌" [~Facebook](https://www.facebook.com/Lunatixdub/posts/10162619753440350)\_
+> "Absolutely spot on, food is excellent, service is great and the coffee is 10/10 👌" [~Facebook](https://www.facebook.com/Lunatixdub/posts/10162619753440350)
 
 We're a family-run cafe in Haslingden, Rossendale, offering freshly prepared food and great coffee. Our focus is on quality ingredients, delicious flavours, and a warm, welcoming atmosphere.
 
