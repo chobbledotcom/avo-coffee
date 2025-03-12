@@ -10,6 +10,7 @@ A minimal, responsive website for [Avo Coffee](https://avocoffee.co.uk), a famil
 - **Blog Posts**: [`src/blog/`](src/blog/) - Individual blog posts and news updates
 - **Snippets**: [`src/snippets/`](src/snippets/) - Reusable content blocks that can be inserted into any page
 - **Assets**: [`src/assets/`](src/assets/) - Images, logos, and other static files
+  - **Photos**: [`src/assets/photos/`](src/assets/photos/) - Photos
 
 ### Layout & Design
 
