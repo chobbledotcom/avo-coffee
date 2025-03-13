@@ -7,12 +7,15 @@
     {% if description -%}
       <meta name="description" content="{{ description | escape }}" />
     {% endif -%}
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=asap-condensed:600" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <script type="module" async src="/assets/js/turbo.es2017-esm.min.js"></script>
+    {% if layout == "contact.html" -%}
+      <script src="/assets/js/botpoison" async></script>
+    {% endif -%}
+    <script data-goatcounter="https://analytics.avocoffee.co.uk/count"
+      async src="https://analytics.avocoffee.co.uk/count.js"></script>
   </head>
   <body class="{{ page.fileSlug }}">
     <header>
@@ -42,20 +45,19 @@
 
     <main>
       {{ content }}
-      <hr />
-
-      <section id="visit-us">
-        <div>
-          <h2>Visit Us</h2>
-          <address>
-            <strong>{{ site.name }}</strong><br />
-            {{ site.address }}<br />
-            {{ site.hours }}
-          </address>
-          <p><a href="/contact/">Click here</a> for more contact info</p>
-        </div>
-      </section>
     </main>
+
+    <hr />
+
+    <section id="visit-us">
+      <h2>Visit Us</h2>
+      <address>
+        <strong>{{ site.name }}</strong><br />
+        {{ site.address }}<br />
+        {{ site.hours }}
+      </address>
+      <p><a href="/contact/">Click here</a> for more contact info</p>
+    </section>
 
     <footer>
       <div class="social-links">
