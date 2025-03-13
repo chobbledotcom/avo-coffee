@@ -1,6 +1,5 @@
 ---
 title: Thank You!
-permalink: false
 ---
 
 # 🥑 Thank You!
