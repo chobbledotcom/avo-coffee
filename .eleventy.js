@@ -1,16 +1,18 @@
-const path = require("path");
-const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
-const fg = require("fast-glob");
-const fs = require("fs");
+module.exports = async function (eleventyConfig) {
+  const path = await import('path');
+  const fastGlob = await import('fast-glob');
+  const fg = fastGlob.default;
+  const fs = await import('fs');
+  const markdownIt = await import('markdown-it');
+  
+  const { eleventyImageTransformPlugin } = await import("@11ty/eleventy-img");
+  const { EleventyRenderPlugin } = await import("@11ty/eleventy");
 
-const images = fg.sync(["src/images/*.jpg"]);
+  const images = fg.sync(["src/images/*.jpg"]);
 
-module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/**/*");
   eleventyConfig.addPlugin(EleventyRenderPlugin);
 
-  // Add a date formatter filter
   eleventyConfig.addFilter("readableDate", function (dateObj) {
     if (typeof dateObj === "string") {
       dateObj = new Date(dateObj);
@@ -22,20 +24,16 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  // Set up markdown parser
-  const markdownIt = require("markdown-it");
-  const md = new markdownIt({
+  const md = new markdownIt.default({
     html: true,
   });
 
-  // Add a markdownify filter
   eleventyConfig.addFilter("markdownify", function (content) {
     return md.render(content || "");
   });
 
-  // Add a shortcode to render snippets by name
   eleventyConfig.addShortcode("renderSnippet", function (name) {
-    const snippetPath = path.join(__dirname, "src/snippets", `${name}.md`);
+    const snippetPath = path.join(process.cwd(), "src/snippets", `${name}.md`);
 
     try {
       const content = fs.readFileSync(snippetPath, "utf8");
@@ -58,15 +56,12 @@ module.exports = function (eleventyConfig) {
     },
   });
 
-  // Configure collections
-  // Blog collection
   eleventyConfig.addCollection("blog", (collection) => {
     return collection.getFilteredByGlob("src/blog/*.md").sort((a, b) => {
-      return b.date - a.date; // sort by date in descending order
+      return b.date - a.date;
     });
   });
 
-  // Snippets collection by key
   eleventyConfig.addCollection("snippetsByKey", (collection) => {
     return collection
       .getFilteredByTag("snippet")
@@ -78,12 +73,10 @@ module.exports = function (eleventyConfig) {
       }, {});
   });
 
-  // Image collection
   eleventyConfig.addCollection("images", (collection) => {
     return images.map((i) => i.split("/")[2]).reverse();
   });
 
-  // Configure asset handling
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy({

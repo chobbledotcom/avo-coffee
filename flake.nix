@@ -1,6 +1,7 @@
 {
   description = "avo-coffee-co-uk";
   inputs = {
+    nixpkgs.url = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
