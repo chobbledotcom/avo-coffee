@@ -1,98 +1,98 @@
 module.exports = async function (eleventyConfig) {
-  const path = await import('path');
-  const fastGlob = await import('fast-glob');
-  const fg = fastGlob.default;
-  const fs = await import('fs');
-  const markdownIt = await import('markdown-it');
-  
-  const { eleventyImageTransformPlugin } = await import("@11ty/eleventy-img");
-  const { EleventyRenderPlugin } = await import("@11ty/eleventy");
+	const path = await import("path");
+	const fastGlob = await import("fast-glob");
+	const fg = fastGlob.default;
+	const fs = await import("fs");
+	const markdownIt = await import("markdown-it");
 
-  const images = fg.sync(["src/images/*.jpg"]);
+	const { eleventyImageTransformPlugin } = await import("@11ty/eleventy-img");
+	const { EleventyRenderPlugin } = await import("@11ty/eleventy");
 
-  eleventyConfig.addWatchTarget("./src/**/*");
-  eleventyConfig.addPlugin(EleventyRenderPlugin);
+	const images = fg.sync(["src/images/*.jpg"]);
 
-  eleventyConfig.addFilter("readableDate", function (dateObj) {
-    if (typeof dateObj === "string") {
-      dateObj = new Date(dateObj);
-    }
-    return dateObj.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  });
+	eleventyConfig.addWatchTarget("./src/**/*");
+	eleventyConfig.addPlugin(EleventyRenderPlugin);
 
-  const md = new markdownIt.default({
-    html: true,
-  });
+	eleventyConfig.addFilter("readableDate", function (dateObj) {
+		if (typeof dateObj === "string") {
+			dateObj = new Date(dateObj);
+		}
+		return dateObj.toLocaleDateString("en-US", {
+			year: "numeric",
+			month: "long",
+			day: "numeric",
+		});
+	});
 
-  eleventyConfig.addFilter("markdownify", function (content) {
-    return md.render(content || "");
-  });
+	const md = new markdownIt.default({
+		html: true,
+	});
 
-  eleventyConfig.addShortcode("renderSnippet", function (name) {
-    const snippetPath = path.join(process.cwd(), "src/snippets", `${name}.md`);
+	eleventyConfig.addFilter("markdownify", function (content) {
+		return md.render(content || "");
+	});
 
-    try {
-      const content = fs.readFileSync(snippetPath, "utf8");
-      return md.render(content);
-    } catch (e) {
-      console.error(`Error rendering snippet ${name}: ${e.message}`);
-      return `<!-- Error rendering snippet ${name} -->`;
-    }
-  });
+	eleventyConfig.addShortcode("renderSnippet", function (name) {
+		const snippetPath = path.join(process.cwd(), "src/snippets", `${name}.md`);
 
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-    formats: ["webp", "jpeg"],
-    widths: [200, 400, 800, 1200],
-    htmlOptions: {
-      imgAttributes: {
-        loading: "lazy",
-        decoding: "async",
-      },
-      pictureAttributes: {},
-    },
-  });
+		try {
+			const content = fs.readFileSync(snippetPath, "utf8");
+			return md.render(content);
+		} catch (e) {
+			console.error(`Error rendering snippet ${name}: ${e.message}`);
+			return `<!-- Error rendering snippet ${name} -->`;
+		}
+	});
 
-  eleventyConfig.addCollection("blog", (collection) => {
-    return collection.getFilteredByGlob("src/blog/*.md").sort((a, b) => {
-      return b.date - a.date;
-    });
-  });
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+		formats: ["webp", "jpeg"],
+		widths: [200, 400, 800, 1200],
+		htmlOptions: {
+			imgAttributes: {
+				loading: "lazy",
+				decoding: "async",
+			},
+			pictureAttributes: {},
+		},
+	});
 
-  eleventyConfig.addCollection("snippetsByKey", (collection) => {
-    return collection
-      .getFilteredByTag("snippet")
-      .reduce((snippetsObj, snippet) => {
-        if (snippet.data.key) {
-          snippetsObj[snippet.data.key] = snippet;
-        }
-        return snippetsObj;
-      }, {});
-  });
+	eleventyConfig.addCollection("blog", (collection) => {
+		return collection.getFilteredByGlob("src/blog/*.md").sort((a, b) => {
+			return b.date - a.date;
+		});
+	});
 
-  eleventyConfig.addCollection("images", (collection) => {
-    return images.map((i) => i.split("/")[2]).reverse();
-  });
+	eleventyConfig.addCollection("snippetsByKey", (collection) => {
+		return collection
+			.getFilteredByTag("snippet")
+			.reduce((snippetsObj, snippet) => {
+				if (snippet.data.key) {
+					snippetsObj[snippet.data.key] = snippet;
+				}
+				return snippetsObj;
+			}, {});
+	});
 
-  eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy({
-    "src/assets/favicon/*": "/",
-  });
+	eleventyConfig.addCollection("images", (collection) => {
+		return images.map((i) => i.split("/")[2]).reverse();
+	});
 
-  return {
-    dir: {
-      input: "src",
-      output: "_site",
-      includes: "_includes",
-      layouts: "_layouts",
-      data: "_data",
-    },
-    templateFormats: ["liquid", "md"],
-    htmlTemplateEngine: "liquid",
-    markdownTemplateEngine: "liquid",
-  };
+	eleventyConfig.addPassthroughCopy("src/assets");
+	eleventyConfig.addPassthroughCopy("src/images");
+	eleventyConfig.addPassthroughCopy({
+		"src/assets/favicon/*": "/",
+	});
+
+	return {
+		dir: {
+			input: "src",
+			output: "_site",
+			includes: "_includes",
+			layouts: "_layouts",
+			data: "_data",
+		},
+		templateFormats: ["liquid", "md", "njk"],
+		htmlTemplateEngine: "liquid",
+		markdownTemplateEngine: "liquid",
+	};
 };
