@@ -71,6 +71,9 @@
         <a href="{{ site.social.tiktok }}" target="_blank" rel="noopener">TikTok</a>
       </div>
       {% renderSnippet "footer-text" %}
+      {% if page.url == "/" %}
+        <p><a rel="nofollow" href="https://chobble.com">website by chobble.com</a></p>
+      {% endif %}
     </footer>
   </body>
 </html>
