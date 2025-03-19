@@ -7,7 +7,7 @@ link_title: Reviews
 
 # 🌟 Reviews
 
-Many thanks to the customers who have taken the time to leave a nice review on our [Facebook page]({{ site.social.facebook }}), our [Happycow profile](({{ site.social.happycow }})), or our [Google Maps listing]({{ site.social.google }})!
+Many thanks to the customers who have taken the time to leave a nice review on our [Facebook page]({{ site.social.facebook }}), our [Happycow profile]({{ site.social.happycow }}), or our [Google Maps listing]({{ site.social.google }})!
 
 Here's some quotes from some recent ones:
 
