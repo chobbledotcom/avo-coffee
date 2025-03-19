@@ -481,7 +481,7 @@ nav {
       opacity: 0;
       animation: slideUp 0.5s ease-out forwards;
 
-      @for $i from 1 through 5 {
+      @for $i from 1 through 6 {
         &:nth-child(#{$i}) {
           animation-delay: 0.1s * $i;
         }
@@ -895,19 +895,33 @@ mark {
   nav {
     flex-wrap: wrap;
     margin: 0.25rem 0 1.5rem;
+    position: sticky;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fdf8d8;
+    z-index: 2;
 
     ul {
       width: 100%;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 0.5rem;
 
       li {
         width: auto;
+        animation: none;
+        opacity: 1;
+        transform: translateY(0);
 
         a {
           padding: 0.4rem;
           margin: 0;
+          min-width: 6rem;
+          animation: none;
+          transform: translateY(0);
 
           &[aria-current="page"]::after {
             height: 2px;

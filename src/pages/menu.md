@@ -1,15 +1,17 @@
 ---
 title: Fresh & Delicious Menu | Vegan Options & Homemade Specialties
 description: Our menu featuring vegan options, fresh coffee, breakfast, and more
+link_order: 1
+link_title: Menu
 ---
 
-# Our Menu
+# 📃 Our Menu
 
 Gluten free options are available.
 
 _For allergies or dietary requirements, please speak to our staff when placing your order._
 
-## Breakfast & Brunch
+## 🥣 Breakfast & Brunch
 
 ### Full Breakfasts
 
@@ -43,7 +45,7 @@ Served with choice of brown / white bloomer or sourdough toast.
 - **Avo Granola:** Jumbo oats, Greek yoghurt & berries.
 - **Pancake Stacks:** Three pancakes with berries & whipped cream or turkey rashers & maple syrup.
 
-## Paninis and Wraps
+## 🌯 Paninis and Wraps
 
 All served with chips & a salad garnish.
 
@@ -54,7 +56,7 @@ All served with chips & a salad garnish.
 - **Beef chilli:** Beef chilli, cheese & japalenos.
 - **Vegan Wrap:** Falafel, red onions, hummus, grilled peppers & tomatoes.
 
-## Sandwiches and Bagels
+## 🥪 Sandwiches and Bagels
 
 All served with a salad garnish.
 
@@ -65,7 +67,7 @@ All served with a salad garnish.
 - **Sausage in Potato Roll:** Cracked black pepper, chicken sausage, or Cumberland chicken sausage.
 - **Turkey Rashers in Potato Roll**
 
-## Drinks
+## ☕ Drinks
 
 We proudly use organic and Fairtrade-certified espresso, and we offer a variety of milk alternatives.
 

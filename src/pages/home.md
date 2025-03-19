@@ -3,6 +3,8 @@ layout: home.html
 title: Fresh Coffee & Vegan-Friendly Cafe in Haslingden
 description: Fresh Avocado bistro coffee deli in Haslingden offering plant-based milk alternatives, vegan cakes, full vegan breakfast, falafel wrap and jacket potatoes
 permalink: /
+link_order: 0
+link_title: Home
 ---
 
 ## 🥑 Welcome to Avo Coffee
