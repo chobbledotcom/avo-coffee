@@ -17,22 +17,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cache Nix store
-        uses: actions/cache@v3
-        with:
-          path: /nix/store
-          key: nix-${{ hashFiles('**/*.nix') }}
-          restore-keys: |
-            nix-
-
       - name: Build
         id: build
         run: |
           nix flake update
-          BUILD_PATH=$(nix build)
-          DEPLOY_PATH="$GITHUB_WORKSPACE/dist"
-          mkdir -p "$DEPLOY_PATH"
-          cp -r "$BUILD_PATH"/* "$DEPLOY_PATH"/
+          nix build
 
       - name: Deploy to neocities
         uses: bcomnes/deploy-to-neocities@v3
@@ -41,4 +30,4 @@ jobs:
           cleanup: true
           neocities_supporter: true
           preview_before_deploy: false
-          dist_dir: dist
+          dist_dir: result-
