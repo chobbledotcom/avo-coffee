@@ -30,4 +30,4 @@ jobs:
           cleanup: true
           neocities_supporter: true
           preview_before_deploy: false
-          dist_dir: result-
+          dist_dir: result
