@@ -5,6 +5,16 @@
   <header>Get In Touch!</header>
   <input type="hidden" name="_redirect" value="{{ site.url }}/thank-you/" />
   <input type="hidden" name="_email.template.footer" value="false" />
+  <input
+    type="hidden"
+    name="_email.from"
+    value="{{ site.name }} contact form"
+  />
+  <input
+    type="hidden"
+    name="_email.subject"
+    value="New message from {{ site.name }} website contact form"
+  />
   <label for="name">
     Name
     <input
