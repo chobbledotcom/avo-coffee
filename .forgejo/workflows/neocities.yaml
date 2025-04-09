@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
 
 env:
-  NIX_PATH: nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos
   NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_KEY }}
 
 jobs:
@@ -21,8 +20,7 @@ jobs:
         id: build
         run: |
           nix flake update
-          nix build
-          mv result dist
+          nix-build
 
       - name: Deploy to neocities
         uses: bcomnes/deploy-to-neocities@v3
@@ -31,4 +29,4 @@ jobs:
           cleanup: true
           neocities_supporter: true
           preview_before_deploy: false
-          dist_dir: dist
+          dist_dir: result
