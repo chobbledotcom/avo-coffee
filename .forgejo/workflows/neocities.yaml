@@ -22,8 +22,7 @@ jobs:
         run: |
           nix flake update
           nix build
-          mkdir dist
-          mv result/ dist
+          mv result dist
 
       - name: Deploy to neocities
         uses: bcomnes/deploy-to-neocities@v3
