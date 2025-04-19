@@ -2,27 +2,18 @@ name: Build and Deploy to Neocities
 
 on:
   push:
-  #  paths:
-  #    - 'src/**'
   workflow_dispatch:
-
-env:
-  NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_KEY }}
 
 jobs:
   build:
-    runs-on: native
+    runs-on: chobble # node:latest but with 11ty, Yarn etc preinstalled: https://git.chobble.com/chobble/docker-image
     steps:
       - name: Checkout
         uses: https://git.chobble.com/mirrored/checkout@v4
 
-      - name: Build
+      - name: Build with Node
         run: |
-          nix flake update
-          BUILD_PATH=$(nix-build)
-          DEPLOY_PATH="$GITHUB_WORKSPACE/dist"
-          mkdir -p "$DEPLOY_PATH"
-          cp -r "$BUILD_PATH"/* "$DEPLOY_PATH"/
+          npx @11ty/eleventy
 
       - name: Deploy to neocities
         uses: https://git.chobble.com/mirrored/deploy-to-neocities@v3
@@ -31,4 +22,11 @@ jobs:
           cleanup: true
           neocities_supporter: true
           preview_before_deploy: false
-          dist_dir: dist
+          dist_dir: _site
+
+      - name: Clean up site
+        run: |
+          ls -la ./
+          rm -rf ./* || true
+          rm -rf ./.??* || true
+          ls -la ./
