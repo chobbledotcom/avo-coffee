@@ -1,99 +1,119 @@
 {
-  description = "avo-coffee-co-uk";
   inputs = {
     nixpkgs.url = "nixpkgs";
-    flake-utils.url = "github:numtide/flake-utils";
   };
+
   outputs =
-    {
-      self,
-      nixpkgs,
-      flake-utils,
-    }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        nodeDeps = import ./node-deps.nix { inherit pkgs; };
-        inherit (nodeDeps) packageJSON nodeModules;
+    { self, nixpkgs }:
+    let
+      systems = [
+        "x86_64-linux"
+        # "aarch64-linux"
+      ];
+      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
 
-        pkgs = import nixpkgs {
-          inherit system;
-        };
-
-        commonBuildInputs = with pkgs; [
-          sass
-          yarn
+      makeDeps =
+        pkgs: with pkgs; [
+          biome # linting
+          nodejs_23
         ];
 
-        site = pkgs.stdenv.mkDerivation {
-          name = "avo-coffee-co-uk-site";
-          src = ./.;
-          buildInputs = commonBuildInputs ++ [ nodeModules ];
-
-          configurePhase = ''
-            ln -sf ${packageJSON} package.json
-            ln -sf ${nodeModules}/node_modules .
-          '';
-
-          buildPhase = ''
-            sass --update src/_scss:_site/css --style compressed
-            yarn --offline eleventy
-          '';
-
-          installPhase = ''cp -r _site $out'';
-
-          # Fix potential permissions issues
-          dontFixup = true;
-        };
-
-        mkScript =
-          name:
-          (pkgs.writeScriptBin name (builtins.readFile ./bin/${name})).overrideAttrs (old: {
-            buildCommand = "${old.buildCommand}\n patchShebangs $out";
-          });
-
-        mkPackage =
-          name:
-          pkgs.symlinkJoin {
-            inherit name;
-            paths = [ (mkScript name) ] ++ commonBuildInputs;
-            buildInputs = [ pkgs.makeWrapper ];
-            postBuild = "wrapProgram $out/bin/${name} --prefix PATH : $out/bin";
+      mkUtils =
+        system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+          deps = makeDeps pkgs;
+          nodeModules = pkgs.mkYarnModules {
+            pname = "chobble-template-dependencies";
+            version = "1.0.1";
+            packageJSON = ./package.json;
+            yarnLock = ./yarn.lock;
+            yarnFlags = [
+              "--frozen-lockfile"
+            ];
           };
 
-        scripts = [
-          "build"
-          "serve"
-        ];
+          mkScript =
+            name:
+            let
+              base = pkgs.writeScriptBin name (builtins.readFile ./bin/${name});
+              patched = base.overrideAttrs (old: {
+                buildCommand = "${old.buildCommand}\n patchShebangs $out";
+              });
+            in
+            pkgs.symlinkJoin {
+              inherit name;
+              paths = [ patched ] ++ deps;
+              buildInputs = [ pkgs.makeWrapper ];
+              postBuild = ''
+                wrapProgram $out/bin/${name} --prefix PATH : $out/bin
+              '';
+            };
 
-        scriptPackages = builtins.listToAttrs (
-          map (name: {
-            inherit name;
-            value = mkPackage name;
-          }) scripts
-        );
-      in
-      rec {
-        defaultPackage = packages.site;
-        packages = scriptPackages // {
-          inherit site;
+          scripts = builtins.attrNames (builtins.readDir ./bin);
+
+          scriptPkgs = builtins.listToAttrs (
+            map (name: {
+              inherit name;
+              value = mkScript name;
+            }) scripts
+          );
+        in
+        {
+          inherit
+            pkgs
+            deps
+            mkScript
+            scripts
+            scriptPkgs
+            nodeModules
+            ;
         };
+    in
+    {
+      packages = forAllSystems (
+        system:
+        let
+          pkgsFor = mkUtils system;
+        in
+        (with pkgsFor; {
+          inherit site nodeModules;
+        })
+        // pkgsFor.scriptPkgs
+      );
 
-        devShells = rec {
+      defaultPackage = forAllSystems (system: self.packages.${system}.site);
+      devShells = forAllSystems (
+        system:
+        let
+          pkgsFor = mkUtils system;
+        in
+        rec {
           default = dev;
-          dev = pkgs.mkShell {
-            buildInputs = commonBuildInputs ++ (builtins.attrValues packages);
+          dev = pkgsFor.pkgs.mkShell {
+            buildInputs = pkgsFor.deps ++ (builtins.attrValues pkgsFor.scriptPkgs);
+
             shellHook = ''
               rm -rf node_modules
-              rm -rf package.json
-              ln -sf ${packageJSON} package.json
-              ln -sf ${nodeModules}/node_modules .
-              echo "Development environment ready!"
-              echo "Run 'serve' to start development server"
-              echo "Run 'build' to build the site in the _site directory"
+              cp -r ${pkgsFor.nodeModules}/node_modules .
+              chmod -R +w ./node_modules
+              cat <<EOF
+
+              Development environment ready!
+
+              Available commands:
+               - 'serve'      - Start development server
+               - 'build'      - Build the site in the _site directory
+               - 'dryrun'     - Perform a dry run build
+               - 'test_flake' - Test building a site using flake.nix
+               - 'lint'       - Lint all files in src using Biome
+
+              EOF
+
+              git pull
             '';
           };
-        };
-      }
-    );
+        }
+      );
+    };
 }

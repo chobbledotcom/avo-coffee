@@ -2,6 +2,7 @@ module.exports = async function (eleventyConfig) {
 	const fastglob = require("fast-glob");
 	const fg = fastglob;
 	const fs = require("fs");
+	const sass = require("sass");
 	const images = fg.sync(["src/images/*.jpg"]);
 	const markdownIt = require("markdown-it");
 	const md = new markdownIt({ html: true });
@@ -75,6 +76,16 @@ module.exports = async function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/images");
 	eleventyConfig.addPassthroughCopy({
 		"src/assets/favicon/*": "/",
+	});
+
+	eleventyConfig.addTemplateFormats("scss");
+	eleventyConfig.addExtension("scss", {
+		outputFileExtension: "css",
+		compile: function (inputContent) {
+			return function (data) {
+				return sass.compileString(inputContent).css;
+			};
+		},
 	});
 
 	return {

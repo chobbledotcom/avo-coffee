@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-sass --update src/_scss:_site/css --style compressed
-yarn eleventy
+rm -rf _site
+npx @11ty/eleventy
