@@ -1,17 +1,15 @@
 module.exports = async function (eleventyConfig) {
-	const path = await import("path");
-	const fastGlob = await import("fast-glob");
-	const fg = fastGlob.default;
-	const fs = await import("fs");
-	const markdownIt = await import("markdown-it");
-
-	const { eleventyImageTransformPlugin } = await import("@11ty/eleventy-img");
-	const { EleventyRenderPlugin } = await import("@11ty/eleventy");
-
+	const fastglob = require("fast-glob");
+	const fg = fastglob;
+	const fs = require("fs");
 	const images = fg.sync(["src/images/*.jpg"]);
+	const markdownIt = require("markdown-it");
+	const md = new markdownIt({ html: true });
+	const path = require("path");
+
+	const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 	eleventyConfig.addWatchTarget("./src/**/*");
-	eleventyConfig.addPlugin(EleventyRenderPlugin);
 
 	eleventyConfig.addFilter("readableDate", function (dateObj) {
 		if (typeof dateObj === "string") {
@@ -22,10 +20,6 @@ module.exports = async function (eleventyConfig) {
 			month: "long",
 			day: "numeric",
 		});
-	});
-
-	const md = new markdownIt.default({
-		html: true,
 	});
 
 	eleventyConfig.addFilter("markdownify", function (content) {
