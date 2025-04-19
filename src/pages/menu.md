@@ -7,9 +7,11 @@ link_title: Menu
 
 # 📃 Our Menu
 
-Gluten free options are available.
+**Gluten free** options are available.
 
 _For allergies or dietary requirements, please speak to our staff when placing your order._
+
+[Our food is halal - read more about that here](/halal-cafe/)
 
 ## 🥣 Breakfast & Brunch
 
