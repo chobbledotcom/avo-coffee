@@ -9,14 +9,14 @@ jobs:
     runs-on: chobble # node:latest but with 11ty, Yarn etc preinstalled: https://git.chobble.com/chobble/docker-image
     steps:
       - name: Checkout
-        uses: https://git.chobble.com/mirrored/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Build with Node
         run: |
           npx @11ty/eleventy
 
       - name: Deploy to neocities
-        uses: https://git.chobble.com/mirrored/deploy-to-neocities@v3
+        uses: bcomnes/deploy-to-neocities@v3
         with:
           api_key: ${{ secrets.NEOCITIES_API_KEY }}
           cleanup: true
