@@ -105,7 +105,6 @@
                - 'serve'      - Start development server
                - 'build'      - Build the site in the _site directory
                - 'dryrun'     - Perform a dry run build
-               - 'test_flake' - Test building a site using flake.nix
                - 'lint'       - Lint all files in src using Biome
 
               EOF

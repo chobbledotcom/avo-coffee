@@ -1,18 +1,18 @@
 {
-  "name": "Avo Coffee",
-  "description": "Fresh Avocado bistro coffee deli in Haslingden, Rossendale",
-  "url": "https://avocoffee.co.uk",
-  "address": "83 Deardengate, Haslingden, BB4 5SN",
-  "hours": "Open every day 9am - 4pm",
-  "social": {
-    "google": "https://maps.app.goo.gl/2vLPKoULsC7hTbgQ6",
-    "facebook": "https://www.facebook.com/profile.php?id=61564212860415",
-    "instagram": "https://www.instagram.com/avocoffee__",
-    "happycow": "https://www.happycow.net/reviews/avocoffee-rossendale-442569",
-    "tiktok": "https://www.tiktok.com/@avocoffee4",
-    "scoresonthedoors": "https://www.scoresonthedoors.org.uk/business/avo-coffeerossendale-lancashire-1777075.html"
-  },
-  "tagline": "Coffee ~ Breakfast ~ Brunch",
-  "google_maps_src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2361.783330010733!2d-2.3286651232463917!3d53.70430657239532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ba3a64ec9ee87%3A0x195429ef54efaf60!2sAvo-Coffee!5e0!3m2!1sen!2suk!4v1741647319349!5m2!1sen!2suk",
-  "formspark_id": "42za2zJ8P"
+	"name": "Avo Coffee",
+	"description": "Fresh Avocado bistro coffee deli in Haslingden, Rossendale",
+	"url": "https://avocoffee.co.uk",
+	"address": "83 Deardengate, Haslingden, BB4 5SN",
+	"hours": "Open every day 9am - 4pm",
+	"social": {
+		"google": "https://maps.app.goo.gl/2vLPKoULsC7hTbgQ6",
+		"facebook": "https://www.facebook.com/profile.php?id=61564212860415",
+		"instagram": "https://www.instagram.com/avocoffee__",
+		"happycow": "https://www.happycow.net/reviews/avocoffee-rossendale-442569",
+		"tiktok": "https://www.tiktok.com/@avocoffee4",
+		"scoresonthedoors": "https://www.scoresonthedoors.org.uk/business/avo-coffeerossendale-lancashire-1777075.html"
+	},
+	"tagline": "Coffee ~ Breakfast ~ Brunch",
+	"google_maps_src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2361.783330010733!2d-2.3286651232463917!3d53.70430657239532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ba3a64ec9ee87%3A0x195429ef54efaf60!2sAvo-Coffee!5e0!3m2!1sen!2suk!4v1741647319349!5m2!1sen!2suk",
+	"formspark_id": "42za2zJ8P"
 }
