@@ -9,27 +9,27 @@ link_title: About
 
 > "Absolutely spot on, food is excellent, service is great and the coffee is 10/10 👌" [~Facebook](https://www.facebook.com/Lunatixdub/posts/10162619753440350)
 
-We're a family-run cafe in Haslingden, Rossendale, offering freshly prepared food and great coffee. Our focus is on quality ingredients, delicious flavours, and a warm, welcoming atmosphere.
+Tucked away in the heart of Haslingden, Rossendale, we're a proper family-run café. Everything's freshly prepared using high quality ingredients. Pop in next time you're in Haslingden - you'll find a warm welcome waiting!
 
 ## ☕ Our Story
 
-Avo Coffee was established with a simple mission: to serve great coffee and food in a friendly environment. We take pride in our community and strive to create a space where everyone feels welcome.
+We opened Avo Coffee with one thing in mind: creating a friendly spot where locals and visitors alike could enjoy a proper brew and tasty food. We wanted to give something back to our Haslingden community - a cozy place where everyone feels right at home.
 
 ## 🥞 Our Food
 
-We serve freshly prepared food with plenty of vegan and gluten-free options. Our menu is carefully crafted to offer something for everyone, from hearty breakfasts to light lunches and sweet treats.
+Our kitchen serves up honest, freshly-made food that'll put a smile on your face. We've got loads of vegan and gluten-free options too - proper tasty alternatives. Whether you fancy a full English to kick-start your morning, a light bite for lunch, or a sweet treat with a brew, we've got you covered.
 
 ## 🇬🇧 Shop Local
 
-We're proud to support local businesses. Our free range eggs are delivered weekly from [Woodhill Farm](https://www.woodhill-farm.co.uk), and we source ingredients locally whenever possible.
+We're big believers in supporting our neighbours. Our eggs come fresh each week from just down the road at [Woodhill Farm](https://www.woodhill-farm.co.uk), and whenever we can, we grab our ingredients from local suppliers. It's better for the food, better for Haslingden, and just makes sense to us.
 
 ## ⭐ 5-Star Hygiene Rating
 
-We're proud to have been awarded [a 5-star hygiene rating!]({{ site.social.scoresonthedoors }})
+Dead chuffed to say we've earned [a 5-star hygiene rating!]({{ site.social.scoresonthedoors }}) Spotless kitchen, happy inspectors, happy customers.
 
-## 💚 More Lovely Reviews
+## 💚 What Our Customers Say
 
-Many thanks to all the customers who have taken the time to leave a review.
+A massive thanks to everyone who's taken a moment to leave us a review - they mean the world to us.
 
 > "When the food arrived (quickly, might I add), it was everything I hoped for and then some. The eggs? Cooked to perfection – the kind you’d see on a foodie's Instagram feed with captions like "Eggcellence!" They nailed it. Truly." [~Google](https://maps.app.goo.gl/i8MW9owNSyck8JqA6)
 
