@@ -7,7 +7,7 @@ link_order: 0
 link_title: Home
 ---
 
-## 🥑 Avo Coffee Haslingden
+# 🥑 Avo Coffee Haslingden
 
 We're a family-run cafe in Haslingden, Rossendale serving up belting coffee, banging breakfasts, fresh & healthy brunches, lush cakes, and good vibes. We're [100% Halal](/halal-cafe/), vegan-friendly, and have gluten free options too.
 
