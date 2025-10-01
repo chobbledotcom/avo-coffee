@@ -15,7 +15,7 @@ A minimal, responsive website for [Avo Coffee](https://avocoffee.co.uk), a famil
 ### Layout & Design
 
 - **Layouts**: [`src/_layouts/`](src/_layouts/) - Page templates and structure
-- **Styling**: [`src/_scss/`](src/_scss/) - SCSS style files
+- **Styling**: [`src/css/`](src/css/) - SCSS style files
 - **Site Data**: [`src/_data/`](src/_data/) - Global site configuration
 
 ## Editing Content
@@ -48,6 +48,13 @@ description: Brief summary for SEO
 ```
 
 And name the file `YYYY-MM-DD-blog-post-name.md`
+
+## Development
+
+- Run `nix develop` to enter the development environment
+- Run `npm run serve` to preview the site locally
+- Run `npm run build` to build the site for production
+- Run `bin/lint` to format code with Biome
 
 ## License
 

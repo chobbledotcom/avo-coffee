@@ -2,15 +2,24 @@ module.exports = async function (eleventyConfig) {
 	const fastglob = require("fast-glob");
 	const fg = fastglob;
 	const fs = require("fs");
-	const sass = require("sass");
+	const { configureScss } = require("./_lib/scss");
 	const images = fg.sync(["src/images/*.jpg"]);
 	const markdownIt = require("markdown-it");
 	const md = new markdownIt({ html: true });
 	const path = require("path");
 
+	const { EleventyRenderPlugin } = await import("@11ty/eleventy");
 	const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
+	eleventyConfig.addPlugin(EleventyRenderPlugin);
+
 	eleventyConfig.addWatchTarget("./src/**/*");
+
+	// Configure SCSS compilation
+	configureScss(eleventyConfig);
+
+	// Ignore SCSS partials (files starting with underscore)
+	eleventyConfig.ignores.add("src/**/_*.scss");
 
 	eleventyConfig.addFilter("readableDate", function (dateObj) {
 		if (typeof dateObj === "string") {
@@ -78,15 +87,6 @@ module.exports = async function (eleventyConfig) {
 		"src/assets/favicon/*": "/",
 	});
 
-	eleventyConfig.addTemplateFormats("scss");
-	eleventyConfig.addExtension("scss", {
-		outputFileExtension: "css",
-		compile: function (inputContent) {
-			return function (data) {
-				return sass.compileString(inputContent).css;
-			};
-		},
-	});
 
 	return {
 		dir: {
@@ -96,7 +96,7 @@ module.exports = async function (eleventyConfig) {
 			layouts: "_layouts",
 			data: "_data",
 		},
-		templateFormats: ["liquid", "md", "njk"],
+		templateFormats: ["liquid", "md", "njk", "scss"],
 		htmlTemplateEngine: "liquid",
 		markdownTemplateEngine: "liquid",
 	};

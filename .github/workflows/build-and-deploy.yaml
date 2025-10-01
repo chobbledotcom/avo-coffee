@@ -1,0 +1,70 @@
+name: Build and Deploy to Bunny CDN
+
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            .image-cache
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Build with Node
+        run: |
+          npm ci
+          npx @11ty/eleventy
+
+      - name: Upload built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-site
+          path: _site/
+          retention-days: 1
+
+  deploy:
+    name: Deploy to Bunny CDN
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: built-site
+          path: _site
+
+      - name: Deploy to Bunny
+        uses: R-J-dev/bunny-deploy@v2.0.6
+        with:
+          access-key: ${{ secrets.BUNNY_ACCESS_KEY }}
+          directory-to-upload: _site
+          storage-endpoint: "https://storage.bunnycdn.com"
+          storage-zone-name: "avo-coffee"
+          storage-zone-password: ${{ secrets.BUNNY_STORAGE_ZONE_PASSWORD }}
+          concurrency: "5"
+          enable-delete-action: true
+          enable-purge-pull-zone: true
+          pull-zone-id: ${{ secrets.BUNNY_PULL_ZONE_ID }}
+          replication-timeout: "15000"
