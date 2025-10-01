@@ -66,5 +66,5 @@ jobs:
           concurrency: "5"
           enable-delete-action: true
           enable-purge-pull-zone: true
-          pull-zone-id: ${{ secrets.BUNNY_PULL_ZONE_ID }}
+          pull-zone-id: 4578769
           replication-timeout: "15000"
